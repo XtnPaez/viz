@@ -1,8 +1,8 @@
 <?php
 header('Content-Type: application/json');
-require_once 'utils/conexion.php';
+require_once '../config/conexion.php';
 
-$sql = "SELECT gid, nam, cpro, ST_AsGeoJSON(the_geom) AS geometry FROM demarcacion.provincia ORDER BY gid ASC";
+$sql = "SELECT gid, nam AS \"NOMBRE\", cpro, ST_AsGeoJSON(the_geom) AS geometry FROM demarcacion.provincia ORDER BY gid ASC";
 
 try {
     $stmt = $pdo->query($sql);

@@ -6,7 +6,17 @@
       "grupo": "Efectores",
       "url": "../api/oficinas_anses.php",
       "tipo": "puntos",
-      "color": "#F7921E"
-    }
+      "color": "#F7921E",
+      "popup_campos": ["sgt", "regional", "provincia", "localidad", "direccion"]
+    },
+    {
+      "id": "provincias",
+      "nombre": "División Provincial",
+      "grupo": "Divisiones Territoriales",
+      "url": "../api/provincias.php",
+      "tipo": "poligono",
+      "color": "#2980B9",
+      "popup_campos": ["NOMBRE"]
+    }    
   ]
 }
