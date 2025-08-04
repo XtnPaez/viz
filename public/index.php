@@ -23,6 +23,7 @@
         <select class="form-select" id="capaSelect">
             <option value="" selected disabled>Elegí una capa</option>
             <option value="provincias">Provincias</option>
+            <option value="oficinas">Oficinas ANSES</option>
         </select>
     </div>
 
