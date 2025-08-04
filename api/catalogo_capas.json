@@ -1,0 +1,12 @@
+{
+  "capas": [
+    {
+      "id": "oficinas_anses",
+      "nombre": "Oficinas ANSES",
+      "grupo": "Efectores",
+      "url": "../api/oficinas_anses.php",
+      "tipo": "puntos",
+      "color": "#F7921E"
+    }
+  ]
+}

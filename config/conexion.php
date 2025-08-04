@@ -1,5 +1,5 @@
 <?php
-// utils/conexion.php
+
 
 $host = 'postgresdb.siempro.gob.ar';      // Ej: 'localhost' o IP por VPN
 $port = '5432';            // Puerto estándar

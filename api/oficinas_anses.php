@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-require_once 'utils/conexion.php';
+require_once '../config/conexion.php';
 
 $sql = "SELECT sgt, regional, provincia, localidad, direccion, latitud, longitud, ST_AsGeoJSON(the_geom)::json AS geometry
         FROM geografia_social.oficinas_anses";
