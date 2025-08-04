@@ -1,5 +1,10 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #242CF4;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1 text-white">Visualizador</span>
+    <a class="navbar-brand" href="#">Visualizador</a>
+
+    <div class="d-flex ms-auto">
+      
+      <a href="auth/logout.php" class="btn btn-outline-light">Logout</a>
+    </div>
   </div>
 </nav>
