@@ -10,6 +10,15 @@
       "popup_campos": ["sgt", "regional", "provincia", "localidad", "direccion"]
     },
     {
+      "id": "institutos_formacion_nivel_inicial",
+      "nombre": "Institutos de Formación Profesional (Nivel Inicial)",
+      "grupo": "Efectores",
+      "url": "../api/institutos_formacion_nivel_inicial.php",
+      "tipo": "puntos",
+      "color": "#1f78b4",
+      "popup_campos": ["jurisdiccion", "departamento", "localidad", "nombre", "domicilio", "sector"]
+    },
+    {
       "id": "unidades_servicio_nivel_inicial",
       "nombre": "Unidades de Servicio (Nivel Inicial)",
       "grupo": "Efectores",
