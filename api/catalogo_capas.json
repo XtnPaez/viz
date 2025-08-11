@@ -28,6 +28,15 @@
       "popup_campos": ["jurisdiccion", "departamento", "localidad", "nombre", "domicilio", "sector"]
     },
     {
+      "id": "establecimientos_salud_primera_infancia",
+      "nombre": "Establecimientos de Salud (Primera Infancia)",
+      "grupo": "Efectores",
+      "url": "../api/establecimientos_salud_primera_infancia.php",
+      "tipo": "puntos",
+      "color": "#f5093c",
+      "popup_campos": ["cde", "provincia", "departamento", "localidad", "domicilio", "nombre", "dependencia"]
+    },
+    {
       "id": "provincias",
       "nombre": "División Provincial",
       "grupo": "Divisiones Territoriales",
