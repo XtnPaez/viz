@@ -1,2 +1,2 @@
-# viz
-visualizador de capas con APIs internas
+# EFPI
+visualizador de capas EFPI
