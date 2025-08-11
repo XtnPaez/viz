@@ -44,6 +44,15 @@
       "tipo": "poligono",
       "color": "#2980B9",
       "popup_campos": ["NOMBRE"]
+    },
+    {
+      "id": "departamentos",
+      "nombre": "División Departamental",
+      "grupo": "Divisiones Territoriales",
+      "url": "../api/departamentos.php",
+      "tipo": "poligono",
+      "color": "#8E44AD",
+      "popup_campos": ["NOMBRE"]
     }    
   ]
 }
