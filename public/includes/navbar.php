@@ -1,15 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
   <div class="container-fluid">
-<<<<<<< HEAD
-    <a class="navbar-brand" href="#">Visualizador</a>
-
-    <div class="d-flex ms-auto">
-      
-      <a href="auth/logout.php" class="btn btn-outline-light">Logout</a>
-    </div>
-  </div>
-</nav>
-=======
     <!-- Brand -->
     <a class="navbar-brand" href="#"><b>EFPI</b></a>
     <!-- Botón para colapsar en mobile -->
@@ -35,4 +25,3 @@
     </div>
   </div>
 </nav>
->>>>>>> 0149c51 (pestañas en navbvar)

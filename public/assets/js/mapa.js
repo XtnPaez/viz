@@ -232,3 +232,36 @@ function cargarCapasDesdeCatalogo() {
 
 // Ejecutar carga inicial de capas
 cargarCapasDesdeCatalogo();
+
+// Guardamos la vista inicial para poder volver
+const vistaInicial = {
+  center: [-38.5, -63],
+  zoom: 4
+};
+
+// Crear control personalizado para botón "Resetear vista"
+const botonResetVista = L.Control.extend({
+  options: { position: 'topleft' },
+  onAdd: function (map) {
+    const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+    container.style.backgroundColor = 'white';
+    container.style.width = '30px';
+    container.style.height = '30px';
+    container.style.cursor = 'pointer';
+    container.style.display = 'flex';
+    container.style.alignItems = 'center';
+    container.style.justifyContent = 'center';
+    container.title = 'Volver a vista inicial';
+    container.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2"/></svg>';
+    container.onclick = function () {
+      map.setView(vistaInicial.center, vistaInicial.zoom);
+    };
+
+    // Evitar propagación para que no cierre otros controles al hacer clic
+    L.DomEvent.disableClickPropagation(container);
+    return container;
+  }
+});
+
+// Agregar el botón al mapa
+map.addControl(new botonResetVista());
