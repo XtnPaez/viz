@@ -10,6 +10,15 @@
       "popup_campos": ["sgt", "regional", "provincia", "localidad", "direccion"]
     },
     {
+      "id": "unidades_servicio_nivel_inicial",
+      "nombre": "Unidades de Servicio (Nivel Inicial)",
+      "grupo": "Efectores",
+      "url": "../api/unidades_servicio_nivel_inicial.php",
+      "tipo": "puntos",
+      "color": "#add8e6",
+      "popup_campos": ["jurisdiccion", "departamento", "localidad", "nombre", "domicilio", "sector"]
+    },
+    {
       "id": "provincias",
       "nombre": "División Provincial",
       "grupo": "Divisiones Territoriales",
