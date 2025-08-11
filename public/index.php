@@ -12,7 +12,7 @@ unset($_SESSION['error']);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ingreso | Viz</title>
+    <title>EFPI : Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/login.css">
 </head>

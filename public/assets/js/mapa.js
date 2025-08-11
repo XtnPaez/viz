@@ -4,13 +4,11 @@ var argenmap = L.tileLayer('https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0
     maxZoom: 20,
     attribution: '© IGN Argentina - Argenmap || SIEMPRO | Informática de Datos | Información Social'
 });
-
 var argenmap_gris = L.tileLayer('https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/mapabase_gris@EPSG%3A3857@png/{z}/{x}/{-y}.png', {
     minZoom: 1,
     maxZoom: 20,
     attribution: '© IGN Argentina - Argenmap Base Gris || SIEMPRO | Informática de Datos | Información Social'
 });
-
 var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; OpenStreetMap contributors || SIEMPRO | Informática de Datos | Información Social'
@@ -26,7 +24,6 @@ var map = L.map('map', {
 // Crear panes para controlar orden visual
 map.createPane('poligonos');
 map.getPane('poligonos').style.zIndex = 400;
-
 map.createPane('puntos');
 map.getPane('puntos').style.zIndex = 600;
 
@@ -45,8 +42,10 @@ var controlCapasBase = L.control.layers(baseLayers, null, {
 
 // Objeto para guardar capas overlay
 const overlayLayers = {};
+
 // Para guardar datos del catálogo (para leyendas)
 let catalogoCapasGlobal = [];
+
 // Para leyendas activas (clave grupo-nombre)
 const leyendasActivas = {};
 
@@ -55,10 +54,8 @@ function actualizarPanelLeyendas() {
     if (map._controlLeyendas) {
         map.removeControl(map._controlLeyendas);
     }
-
     const keys = Object.keys(leyendasActivas);
     if (keys.length === 0) return;
-
     const LeyendasControl = L.Control.extend({
         options: { position: 'bottomright' },
         onAdd: function () {
@@ -70,7 +67,6 @@ function actualizarPanelLeyendas() {
             container.style.boxShadow = '0 0 15px rgba(0,0,0,0.2)';
             container.style.fontSize = '12px';
             container.style.borderRadius = '4px';
-
             keys.forEach(key => {
                 const leyenda = leyendasActivas[key];
                 const div = document.createElement('div');
@@ -89,11 +85,9 @@ function actualizarPanelLeyendas() {
                 `;
                 container.appendChild(div);
             });
-
             return container;
         }
     });
-
     map._controlLeyendas = new LeyendasControl();
     map.addControl(map._controlLeyendas);
 }
@@ -111,20 +105,16 @@ function agregarCheckboxAlPanel(grupo, nombre) {
         console.warn(`No se encontró el panel para grupo: ${grupo}`);
         return;
     }
-
     const capa = overlayLayers[grupo][nombre];
     const meta = buscarCapaMeta(grupo, nombre);
-
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.className = 'form-check-input';
     checkbox.id = `chk-${grupo.toLowerCase()}-${nombre.replace(/\s+/g, '_')}`;
-
     const label = document.createElement('label');
     label.className = 'form-check-label';
     label.htmlFor = checkbox.id;
     label.innerText = nombre;
-
     checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
             capa.addTo(map);
@@ -138,19 +128,16 @@ function agregarCheckboxAlPanel(grupo, nombre) {
                 };
             }
             actualizarPanelLeyendas();
-
         } else {
             map.removeLayer(capa);
             delete leyendasActivas[`${grupo}-${nombre}`];
             actualizarPanelLeyendas();
         }
     });
-
     const formCheck = document.createElement('div');
     formCheck.className = 'form-check ms-3 mt-1';
     formCheck.appendChild(checkbox);
     formCheck.appendChild(label);
-
     panel.appendChild(formCheck);
 }
 
@@ -160,7 +147,6 @@ function cargarCapasDesdeCatalogo() {
         .then(response => response.json())
         .then(data => {
             catalogoCapasGlobal = data.capas;
-
             data.capas.forEach(capa => {
                 fetch(capa.url)
                     .then(response => response.json())
@@ -169,12 +155,12 @@ function cargarCapasDesdeCatalogo() {
                         let opcionesGenerales = {
                             pane: capa.tipo === "puntos" ? 'puntos' : 'poligonos'
                         };
-
                         if (capa.tipo === "puntos") {
                             nuevaCapa = L.geoJSON(geojson, {
                                 ...opcionesGenerales,
                                 pointToLayer: function (feature, latlng) {
                                     return L.circleMarker(latlng, {
+                                        pane: 'puntos',
                                         radius: 4,
                                         fillColor: capa.color || "#3388ff",
                                         color: "#000",
@@ -186,7 +172,6 @@ function cargarCapasDesdeCatalogo() {
                                 onEachFeature: function (feature, layer) {
                                     let props = feature.properties;
                                     let popupContent = "";
-
                                     if (capa.popup_campos && Array.isArray(capa.popup_campos)) {
                                         capa.popup_campos.forEach(campo => {
                                             if (props[campo]) {
@@ -198,12 +183,10 @@ function cargarCapasDesdeCatalogo() {
                                             popupContent += `<strong>${key.toUpperCase()}:</strong> ${props[key]}<br>`;
                                         }
                                     }
-
                                     layer.bindPopup(popupContent);
                                 }
                             });
                         }
-
                         if (capa.tipo === "poligono") {
                             nuevaCapa = L.geoJSON(geojson, {
                                 ...opcionesGenerales,
@@ -215,13 +198,10 @@ function cargarCapasDesdeCatalogo() {
                                 onEachFeature: function (feature, layer) {
                                     let props = feature.properties;
                                     let popupContent = "";
-
                                     if (props["NOMBRE"]) {
                                         popupContent = `<strong>NOMBRE:</strong> ${props["NOMBRE"]}`;
                                     }
-
                                     layer.bindPopup(popupContent);
-
                                     layer.on({
                                         mouseover: function (e) {
                                             e.target.setStyle({
@@ -237,13 +217,10 @@ function cargarCapasDesdeCatalogo() {
                                 }
                             });
                         }
-
                         if (!overlayLayers[capa.grupo]) {
                             overlayLayers[capa.grupo] = {};
                         }
-
                         overlayLayers[capa.grupo][capa.nombre] = nuevaCapa;
-
                         agregarCheckboxAlPanel(capa.grupo, capa.nombre);
                     });
             });
