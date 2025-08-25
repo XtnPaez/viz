@@ -20,8 +20,7 @@ try {
     }
     $geojson = [
         "type" => "FeatureCollection",
-        "features" => $features
-    ];
+        "features" => $featuresgit
     echo json_encode($geojson);
 } catch (PDOException $e) {
     echo json_encode(['error' => $e->getMessage()]);
