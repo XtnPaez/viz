@@ -1,6 +1,15 @@
 {
   "capas": [
     {
+      "id": "centros_documentacion_renaper",
+      "nombre": "Centros de documentación RENAPER",
+      "grupo": "Efectores",
+      "url": "../api/centros_documentacion_renaper.php",
+      "tipo": "puntos",
+      "color": "#dd99ef",
+      "popup_campos": ["numero_oficina", "denominacion", "domicilio"]
+    },
+    {
       "id": "oficinas_anses",
       "nombre": "Oficinas ANSES",
       "grupo": "Efectores",
@@ -44,6 +53,15 @@
       "tipo": "poligono",
       "color": "#2980B9",
       "popup_campos": ["NOMBRE"]
-    }
+    },
+    {
+      "id": "departamentos",
+      "nombre": "División Departamental",
+      "grupo": "Divisiones Territoriales",
+      "url": "../api/departamentos.php",
+      "tipo": "poligono",
+      "color": "#8E44AD",
+      "popup_campos": ["NOMBRE"]
+    }    
   ]
 }
