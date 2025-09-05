@@ -7,7 +7,7 @@
       "url": "../api/centros_documentacion_renaper.php",
       "tipo": "puntos",
       "color": "#dd99ef",
-      "popup_campos": ["numero_oficina", "denominacion", "domicilio"]
+      "popup_campos": ["OFICINA", "denominacion", "domicilio"]
     },
     {
       "id": "oficinas_anses",
