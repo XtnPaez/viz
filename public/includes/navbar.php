@@ -14,9 +14,9 @@
         <li class="nav-item">
           <a class="nav-link" href="home.php">Mapa</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="proyecto.php">Proyecto</a>
-        </li>
+        </li> -->
       </ul>
       <!-- Logout a la derecha -->
       <div class="d-flex">

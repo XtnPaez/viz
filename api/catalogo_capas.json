@@ -1,6 +1,15 @@
 {
   "capas": [
     {
+      "id": "centros_documentacion_renaper",
+      "nombre": "Centros de documentación RENAPER",
+      "grupo": "Efectores",
+      "url": "../api/centros_documentacion_renaper.php",
+      "tipo": "puntos",
+      "color": "#dd99ef",
+      "popup_campos": ["numero_oficina", "denominacion", "domicilio"]
+    },
+    {
       "id": "oficinas_anses",
       "nombre": "Oficinas ANSES",
       "grupo": "Efectores",
