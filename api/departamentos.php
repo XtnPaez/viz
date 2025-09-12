@@ -1,11 +1,9 @@
 <?php
 header('Content-Type: application/json');
 require_once '../config/conexion.php';
-
 $sql = "SELECT gid, nam AS \"NOMBRE\", cdep, ST_AsGeoJSON(ST_SimplifyPreserveTopology(the_geom, 0.01)) AS geometry
             FROM demarcacion.departamento
             ORDER BY gid ASC";
-
 try {
     $stmt = $pdo->query($sql);
     $features = [];
