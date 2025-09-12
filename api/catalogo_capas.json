@@ -28,6 +28,15 @@
       "popup_campos": ["jurisdiccion", "departamento", "localidad", "nombre", "domicilio", "sector"]
     },
     {
+      "id": "primarias_alfa",
+      "nombre": "Primarias Alfa - Plan de Alfabetización",
+      "grupo": "Efectores",
+      "url": "../api/primarias_alfa.php",
+      "tipo": "puntos",
+      "color": "#F54927",
+      "popup_campos": ["label", "cueanexo", "jurisdiccion", "nombre"]
+    },
+    {
       "id": "unidades_servicio_nivel_inicial",
       "nombre": "Unidades de Servicio (Nivel Inicial)",
       "grupo": "Efectores",

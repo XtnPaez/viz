@@ -7,6 +7,7 @@ $dbname = 'sigfrido';    // Nombre de tu base
 $user = 'cpaez';       // Usuario con permisos
 $password = 'r26BfMVZ';     // Contraseña
 
+
 try {
     $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
